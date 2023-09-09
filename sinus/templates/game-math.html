@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        button[type="button"] {
+            padding: 20px 50px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 20px;
+        }
+
+        button[type="button"]:hover {
+            background-color: #0056b3;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        a {
+            display: block;
+            font-size: 16px;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <form method = "POST">
+        {% csrf_token %}
+        <h1>Наша любимая математика</h1>
+        <p>Реши пример и ты свободен</p>
+        <p>Давай начнем</p>
+        <button type="button" disabled>{{random_number_one}}</button>
+        <button type="button" disabled>{{random_number_two}}</button>
+        <button type="button" disabled>{{random_operator}}</button>
+        <input type="number" id="otvet" name="otvet" min="1" max="100" required>
+    </form>
+    <a href="{% url 'basic' %}">Вернуться на главную</a>
+</body>
+</html>

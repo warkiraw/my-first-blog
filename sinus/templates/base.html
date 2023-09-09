@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Warki</title>
+    <style>
+                body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .home {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: #555;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px 0;
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="home">
+        <h1>Добро Пожаловать На Сайт Warki!</h1>
+        <h3>Пожалуйста выберите игру</h3>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="game" value="1">Угадай число!</button>
+        <button type="submit" name="game" value="2">Выбери коробку!</button>
+        <button type="submit" name="game" value="3">Математика ураааааааааааааааааааааа!</button>
+        <button type="submit" name="game" value="4">Проблема</button>
+        <button type="submit" name="game" value="5">Выйти</button>
+    </form>
+</body>
+</html>

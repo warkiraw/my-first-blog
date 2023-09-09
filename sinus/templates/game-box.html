@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        form {
+            margin: 20px 0;
+        }
+
+        button[type="submit"] {
+            padding: 20px 50px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 20px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: block;
+            font-size: 16px;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <h1>Угадай в какой коробке спрятался медведь!</h1>
+        <p>Процесс довольно прост,перед тобой 3 коробки и ты должен угадать в какой из них засел медведь,если угадал - то ты выиграл,сли нет - то ты проиграл</p>
+        <p>Давай начнем</p>
+        <button type="submit" name = "box" value="1">1</button>
+        <button type="submit" name = "box" value="2">2</button>
+        <button type="submit" name = "box" value="3">3</button>
+        <p>{{message}}</p>
+        <p>ТЫ НАШЕЛ {{attempts}} МЕДВЕДЕЙ</p>
+    </form>
+    <a href="{% url 'basic' %}">Вернуться на главную</a>
+</body>
+</html>
