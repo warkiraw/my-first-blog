@@ -1,12 +1,15 @@
 from django.urls import path
 from django.contrib import admin
 from . import views
+from . import views_auth
+from django.conf.urls.static import static
+
 urlpatterns = [
-    path('', views.register, name='register'),
-    path('base', views.basik, name='basic'),
-    path('game1', views.get_random_number, name='get_random_number'),
-    path('game2', views.get_random_box, name='get_random_box'),
-    path('game3', views.get_mathik, name='get_mathik'),
-    path('game4/', views.problems, name='problems'),
-    path('make_problems', views.make_problems, name='make_problems'),
+    path('', views_auth.index, name='index'),
+    path('register/', views_auth.registration, name='register'),
+    path('login/', views_auth.login_view, name='login'),
+    path('logout/', views_auth.logout_view, name='logout'),
+    path('account/', views_auth.account, name='account'),
+    path('create/', views.create_view, name='create'),
+    path('edit/<int:transaction_id>', views.edit_view, name='edit'),
 ]

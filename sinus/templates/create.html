@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Новая запись</h1>
+    <form action="" method="post" style="max-width: 800px">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="description" class="form-label">Описание</label>
+          <input name="description" type="text" class="form-control" id="description" required>
+        </div>
+        <div class="mb-3">
+          <label for="amount" class="form-label">Сумма</label>
+          <input name="amount" type="number" class="form-control" id="amount">
+        </div>
+        <div class="mb-3">
+          <label for="type" class="form-label">Тип</label>
+            <select name="type" id="type" class="form-control">
+                <option value="low">Низкий</option>
+                <option value="medium">Средний</option>
+                <option value="high">Высокий</option>
+            </select>
+        </div>
+        <input class="btn btn-info" type="submit" value="Добавить">
+    </form>
+</body>
+</html>

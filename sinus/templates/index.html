@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Главная страница</title>
+    <style>
+        /* Стили для всей страницы */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Стили для формы */
+        .transaction-form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        select.form-control {
+            height: 34px;
+        }
+
+        .btn-info {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-info:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Добро пожаловать на сайт!</h1>
+    <p>Чтобы зарегистрироваться, нажмите <a href="/register">сюда</a></p>
+    <p>Чтобы авторизоваться, нажмите <a href="/login">сюда</a></p>
+    <h1>Новая запись</h1>
+    <form action="/create/" method="post" style="max-width: 800px">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="name" class="form-label">Имя</label>
+          <input name="name" type="text" class="form-control" id="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Почта</label>
+          <input name="email" type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Описание</label>
+          <input name="description" type="text" class="form-control" id="description" required>
+        </div>
+        <div class="mb-3">
+          <label for="amount" class="form-label">Сумма</label>
+          <input name="amount" type="number" class="form-control" id="amount">
+        </div>
+        <div class="mb-3">
+          <label for="type" class="form-label">Статус</label>
+            <select name="type" id="type" class="form-control">
+                <option value="low">Низкий</option>
+                <option value="medium">Средний</option>
+                <option value="high">Высокий</option>
+            </select>
+        </div>
+        <input class="btn btn-info" type="submit" value="Добавить">
+    </form>
+</body>
+</html>

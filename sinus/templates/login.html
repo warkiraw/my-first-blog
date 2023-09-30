@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registration</title>
+    <title>Document</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,7 +65,7 @@
             background-color: #0056b3;
         }
 
-        /* Добавим стили для кнопки "Зарегистрироваться" */
+        /* Стили для кнопки "Войти" */
         input[type="submit"] {
             background-color: #4CAF50;
             color: white;
@@ -83,27 +84,23 @@
     </style>
 </head>
 <body>
-<h1>Регистрация</h1>
-<form action="" method="post">
+    <h1>Авторизация</h1>
+    <form action="" method="post">
     {% csrf_token %}
     <div class="mb-3">
-      <label for="email" class="form-label">Email</label>
-      <input name="email" type="email" class="form-control" id="email" placeholder="name@example.com" required>
+      <label for="email" class="form-label">Email address</label>
+      <input name="email" type="email" class="form-control" id="email" required>
     </div>
     <div class="mb-3">
-      <label for="password" class="form-label">Пароль</label>
-      <input name="password" type="password" class="form-control" id="password" placeholder="password">
-    </div>
-    <div class="mb-3">
-      <label for="password2" class="form-label">Повторите пароль</label>
-      <input name="password2" type="password" class="form-control" id="password2" placeholder="confirm password">
+      <label for="password" class="form-label">Password</label>
+      <input name="password" type="password" class="form-control" id="password">
     </div>
     {% if message %}
     <div class="alert alert-danger" role="alert">
       {{ message }}
     </div>
     {% endif %}
-    <input type="submit" value="Зарегистрироваться">
+    <input type="submit" value="Войти">
 </form>
 </body>
 </html>

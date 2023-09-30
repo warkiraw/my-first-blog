@@ -1,23 +1,32 @@
-from django.conf import settings
+
 from django.db import models
+from django.contrib.auth.models import User
 from django.utils import timezone
+from django.contrib.auth.models import Group
 
 
-class Post(models.Model):
-    PRIORITY_CHOICES = (
-        ('high', 'Высокий'),
-        ('medium', 'Средний'),
+class Transaction(models.Model):
+    TYPE_CHOICES = (
         ('low', 'Низкий'),
+        ('medium', 'Средний'),
+        ('high', 'Высокий'),
     )
-    tema = models.CharField(max_length=40)
-    text = models.TextField()
-    priority = models.CharField(max_length=10,choices= PRIORITY_CHOICES,default='medium')
+    STATUS_CHOICES = (
+        ('new', 'NEW'),
+        ('resolved', 'Решена'),
+        ('in_progress', 'В процессе')
+    )
+    created = models.DateField(auto_now_add=True)
+    modified = models.DateField(auto_now=True)
+    name = models.CharField(max_length=10, blank=True, null=True)
+    email = models.CharField(max_length=10_000, blank=True, null=True)
+    description = models.CharField(max_length=10_000, blank=True, null=True)
+    amount = models.CharField(max_length=10_000, blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now)
-    published_date = models.DateTimeField(blank=True, null=True)
-
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
-
+    type = models.CharField(max_length=10, choices=TYPE_CHOICES, default='low')
+    status = models.CharField(max_length=11, choices=STATUS_CHOICES,default='NEW')
     def __str__(self):
-        return self.tema
+        return f"{self.description}: {self.amount} {self.created_date} {self.type} {self.status} {self.name} {self.email}"
+    def amount_abs(self) -> int:
+        return int(self.amount)
+
