@@ -36,3 +36,5 @@ def edit_view(request: HttpRequest, transaction_id: int) -> HttpResponse:
     }
 
     return render(request, "edit.html", context)
+def about(request):
+    return render(request, "about.html")

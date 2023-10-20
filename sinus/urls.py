@@ -12,4 +12,5 @@ urlpatterns = [
     path('account/', views_auth.account, name='account'),
     path('create/', views.create_view, name='create'),
     path('edit/<int:transaction_id>', views.edit_view, name='edit'),
+    path('about', views.about, name='about'),
 ]
